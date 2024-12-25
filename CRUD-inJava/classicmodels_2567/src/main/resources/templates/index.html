@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Classic Model :: Home</title>
+    <th:block th:insert="~{flagments/html-head}"/>
+</head>
+<body>
+<th:block th:insert="~{flagments/page-header}"/>
+<div class="snippet-container py-8 mx-24 w-4/5">
+    <div class="flex-col w-9/12">
+        <label th:text="'Hello ' + ${#ctx.session.user==null?'Guest !': #ctx.session.user.contactFirstName}" class="text-lg font-bold rounded-lg border-solid border-2 border-ref-900 px-4 py-2 bg-blue-400"/>
+        <label th:text="'JSESSION ID : ' + ${sid}" class="text-lg font-bold rounded-lg border-solid border-2 border-ref-900 px-4 py-2 bg-green-400"/>
+        <p class="text-2xl">
+            A Guide to the Unique Classic Cars of Yesteryear
+        </p>
+        <p class="py-2">
+            There’s something about the purr of the engine and beautiful craftsmanship of a classic car that takes
+            you
+            back
+            to a
+            different time and place. Modern relics of when life went slower and dreams came faster, classic cars
+            bear
+            witness
+            to a bygone era that was full of hope, innovation, and preservation.
+        </p>
+        <p class="py-2">
+            Ride along as we cruise through the lifetime of automotives, highlighting their monumental impact at the
+            turn of
+            the
+            20th century and relevance in today’s future-focused world.
+        </p>
+        <div class="flex-none w-100 ml-24 mr-48">
+            <img class="h-auto w-100" src="/images/classic-car-large.jpg" alt="Classic Model"/>
+        </div>
+
+        <p class="py-1 text-2xl text-blue-900">What is considered a classic car?</p>
+        <p class="py-2">
+            Old cars have distinct characteristics that make them all a little different—most notably, age. For car
+            club
+            members, collectors, aficionados, and classic car insurance providers, old cars are grouped into three
+            categories:
+            <span class="font-bold">antique, vintage, and classic.</span> Understanding what these categories mean
+            can
+            help
+            you determine what’s considered
+            a classic car.
+        </p>
+
+        <p class="ml-8"><span class="font-bold">&#8258 Antique cars</span> are the oldest of old cars, dating back
+            to
+            the dawn of the automotive industry in the early 1900s.
+            Often dubbed “horseless carriage” cars, vehicles from this age are now used as more of a showpiece than
+            a
+            way to
+            get around town. The most recognized classic car of this era might be Ford’s Model T, made in 1908.
+        </p>
+
+        <p class="ml-8"><span class="font-bold">&#8258 Vintage cars</span> were manufactured between 1919 and 1930.
+            Although you may catch some vintage cars on the road, many
+            of these highly coveted pieces of automotive history are precious instruments with a hefty price tag.
+            The
+            most
+            beautiful vintage cars include the 1928 Duesenberg Model J and the 1925 Rolls Royce Phantom I, the
+            luxury
+            vehicle synonymous with the Roaring Twenties.
+        </p>
+        <p class="ml-8"><span class="font-bold">&#8258 Classic cars</span> are vehicles over 25 years old. These
+            cars,
+            which you’ll typically encounter at car shows—or as
+            classic
+            cars for sale—are still drivable. Casting a wide net, there are several makes and models that fall under
+            the
+            classic
+            car definition. Manufactured for 65 years, from 1938 to 2003, the Volkswagen Beetle is one of the
+            longest-produced
+            vehicles and perhaps the best classic car for everyday use.
+        </p>
+    </div>
+    <div class="flex w-20">
+    </div>
+    <th:block th:if="${popup != 'not-show'}" th:insert="~{flagments/home-dialog}"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="~{flagments/html-head}"/>
+</head>
+<body>
+<th:block th:insert="~{flagments/page-header}"/>
+<!--ตัวปุ่ม Create-->
+<div class="sm:ml-6 sm:block pt-16">
+    <div class="flex space-x-4">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="/products/form" th:class="'px-2 py-2 text-sm font-medium'">Create New Product</a>
+    </div>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-cols-4 gap-3 max-w-7xl mx-auto my-10">
+    <div class="grid" th:each="p :  ${products}">
+        <div class="image thumbnail" title="${p.productDescription}">
+            <img th:src="'model-images/'+${p.productLine}+'/'+${p.productCode}+'.jpg'" height="120"
+                 width="180"/>
+        </div>
+
+<!-- button add -->
+        <div class="text-2xl">
+            <button th:value="${p.productCode}" onclick="addToCart(this)"> +</button>
+        </div>
+
+<!--button ลบ-->
+        <div class="text-2xl">
+            <button th:value="${p.productCode}" onclick="deleteProduct(this)"> Remove</button>
+        </div>
+
+        <!--button update-->
+        <div class="text-2xl">
+            <a th:href="'/products/form/' + ${p.productCode}"> Update</a>
+        </div>
+
+        <div><span th:text="${p.productName}"/> <span style="text-align: right" th:text="${p.msrp}"/>
+            <span style="color: darkred;margin-left: 2px;cursor: pointer"></span>
+        </div>
+
+    </div>
+    <hr>
+</div>
+<script>
+
+    function deleteProduct(buttonObject){
+        const xhttp = new XMLHttpRequest();
+
+        //click remove ให้รีเฟรชหน้าเอง
+        xhttp.addEventListener("readystatechange", function (){
+            if(http.readyState === 4){
+             window.location.reload(true);
+            }
+        });
+
+          // Send a request
+        xhttp.open("DELETE", "products/"+ buttonObject.value); //ต่อหลัง/  //ไปเข้าProduct Contoller
+        xhttp.send(); //มาทำอันนี้ก่อน แล้วค่อยไปเข้าSpring Boot แล้วค่อยรีเฟรช
+
+    }
+
+    function addToCart(buttonObject) {
+        // alert("Product code: " + buttonObject.value);
+        // Create an XMLHttpRequest object
+        const xhttp = new XMLHttpRequest();
+
+        // Define a callback function
+        xhttp.onload = function () {
+           //alert("Response: "+ this.responseText);
+            if(this.status==200) {
+                document.getElementById("cart_item").innerHTML = this.responseText;
+            } else {
+                alert("Request failed, try again later !!!")
+            }
+        }
+
+        // Send a request
+        xhttp.open("GET", "addToCart?pCode="+ buttonObject.value);
+        xhttp.send();
+    }
+</script>
+</body>
+</html>

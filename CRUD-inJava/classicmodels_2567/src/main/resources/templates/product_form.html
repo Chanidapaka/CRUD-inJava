@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create/Update Product</title>
+</head>
+<body>
+<!--------- name ต้องเหมือนในEntity ทั้งหมด โดยเฉพาะ ProductLine---------->
+  <form action="/products" method="post">
+    <input placeholder="Product Code" name="productCode" type="text" value=""/><br>
+    <input placeholder="Product Name" name="productName" type="text" value=""/><br>
+    <input placeholder="Product Line" name="productLine" type="text" value=""/><br>
+<!-----value ต้องตรงกับตารางที่อยู่ในdatabase-->
+      <input placeholder="Product Scale" name="productScale" type="text" value=""/><br>
+    <input placeholder="Product Vendor" name="productVendor" type="text" value=""/><br>
+    <input placeholder="Product Description" name="productDescription" type="text" value=""/><br>
+    <input placeholder="Quantity InStork" name="quantityInStock" type="number" value=""/><br>
+      <input placeholder="Buy Price" name="buyPrice" type="number" value=""/><br>
+      <input placeholder="MSRP" name="msrp" type="number" value=""/><br>
+   <hr>
+    <input type="submit" value="save">
+  </form>
+</body>
+</html>

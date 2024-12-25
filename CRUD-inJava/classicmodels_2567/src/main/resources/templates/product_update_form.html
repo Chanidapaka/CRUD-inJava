@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Product</title>
+</head>
+<body>
+<!--------- name ต้องเหมือนในEntity ทั้งหมด โดยเฉพาะ ProductLine---------->
+  <form action="/products" method="post">
+    <input placeholder="Product Code" name="productCode" type="text" th:value="${product.productCode}"/><br>
+    <input placeholder="Product Name" name="productName" type="text" th:value="${product.productName}"/><br>
+    <input placeholder="Product Line" name="productLine" type="text" th:value="${product.productLine}"/><br>
+<!-----value ต้องตรงกับตารางที่อยู่ในdatabase-->
+      <input placeholder="Product Scale" name="productScale" type="text" th:value="${product.productScale}"/><br>
+    <input placeholder="Product Vendor" name="productVendor" type="text" th:value="${product.productVendor}"/><br>
+    <input placeholder="Product Description" name="productDescription" th:type="text" value="${product.productDescription}"/><br>
+    <input placeholder="Quantity InStork" name="quantityInStock" type="number" th:value="${product.quantityInStock}"/><br>
+      <input placeholder="Price" name="buyPrice" type="number" th:value="${product.buyPrice}"/><br>
+      <input placeholder="MSRP" name="msrp" type="number" th:value="${product.msrp}"/><br>
+   <hr>
+    <input type="submit" value="save">
+  </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<table>
+    <thead>
+    <td>No#</td>
+    <td>Product</td>
+    <td>Price</td>
+    <td>Quantity</td>
+    <td>Total</td>
+    </thead>
+    <tr  style="padding: 8px" th:each="ci : ${#ctx.session.cart.allItem}">
+        <td th:text="${ciStat.count}"/>
+        <td th:text="${ci.product.productName}"/>
+        <td th:text="${ci.unitPrice}"/>
+        <td th:text="${ci.quantity}" style="text-align: center"/>
+        <td th:text="${ci.total}"/>
+    </tr>
+</table>

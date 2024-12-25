@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order List</title>
+</head>
+<body>
+    <span th:text="${customer.customerName}"/>
+    <table>
+        <tr th:each="o : ${customer.orders}">
+            <td th:text="${o.id}"></td>
+            <td th:text="${o.orderDate}"></td>
+            <td th:text="${o.status}"></td>
+            <td th:text="${o.comments}"></td>
+        </tr>
+    </table>
+</body>
+</html>

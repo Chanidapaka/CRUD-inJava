@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create/Update Office</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div style="margin-left: 100px">
+    <div class="col"><label>Office Code</label></div>
+    <div class="col"><input class="block m-2" name="officeCode" type="text" th:value="${office.officeCode}"/></div>
+
+    <div class="block" style="margin-top: 20px"><label>City</label></div>
+    <div class="col"><input class="block m-2" name="city" type="text" th:value="${office.city}"/></div>
+
+    <div class="col"><label>Address</label></div>
+    <div class="col"><input class="block m-2" name="addressLine1" type="text" th:value="${office.addressLine1}"/></div>
+
+    <div class="col"><label>Coutry</label></div>
+    <div class="col"><input class="block m-2" name="country" type="text" th:value="${office.country}"/></div>
+
+    <div class="col"><label>Phone</label></div>
+    <div class="col"><input class="block m-2" name="phone" type="text" th:value="${office.phone}"/></div>
+
+    <div class="col"><label>Postal Code</label></div>
+    <div class="col"><input class="block m-2" name="postalCode" type="text" th:value="${office.postalCode}"/></div>
+
+    <div class="col"><label>Territory</label></div>
+    <div class="col"><input class="block m-2" name="territory" type="text" th:value="${office.territory}"/></div>
+    <hr>
+</div>
+</body>
+</html>

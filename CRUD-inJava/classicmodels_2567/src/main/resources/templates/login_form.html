@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Classic Model :: Home</title>
+    <th:block th:insert="~{flagments/html-head}"/>
+</head>
+<body>
+<th:block th:insert="~{flagments/page-header}"/>
+<div class="snippet-container py-8 mx-24 w-2/5">
+    <form action="login" method="post" class="p-4 border-solid border-2">
+        <p class="p-4 border-2 border-solid- border-silver-400">User name: <input type="text" name="username" required/></p>
+        <p class="p-4 border-2 border-solid- border-silver-400">Password: <input type="password" name="password" required/></p>
+        <hr/>
+        <p><input class="bg-gray-200 p-2 border-2 border-solid border-black" type="submit" value="Login"/></p>
+    </form>
+    <p th:text="${error}" th:if="${error != null}" class="text-2xl text-red-600"></p>
+</div>
+</body>
+</html>

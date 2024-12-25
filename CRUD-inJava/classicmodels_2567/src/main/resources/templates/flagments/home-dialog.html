@@ -1,0 +1,53 @@
+<div id="static-modal"
+     class="fixed ml-48 inset-4 z-10 items-center justify-start h-3/5 w-3/5 px-4 pt-4 pb-20 rounded-lg border-gray-400 border-solid border-2 px-6 bg-gray-200 shadow-2xl bg-opacity-95 overflow-y-auto">
+    <div class="modal-content">
+        <div class="modal-header py-2">
+                <span class="modal-title text-xl">
+                    :: Ferrari 250 GT ::
+                </span>
+        </div>
+        <div class="modal-body">
+            <p>
+            <div class="flex w-90 px-24">
+                <img class="h-auto w-100" src="/images/HOR_XB1_Ferrari_250_62_GTO.webp" alt="Ferrari 250 GTO"/>
+            </div>
+            &nbsp; &nbsp; &nbsp; The 250 GTO was designed to compete in Group 3 GT racing, where its rivals would
+            include the Shelby
+            Cobra,
+            Jaguar E-Type and Aston Martin DP214.[16] The development of the 250 GTO was headed by chief engineer
+            Giotto
+            Bizzarrini. Although Bizzarrini is usually credited as the designer of the 250 GTO, he and most other
+            Ferrari engineers were fired in 1962 due to a dispute with Enzo Ferrari. Further development of the 250
+            GTO
+            was overseen by new engineer Mauro Forghieri, who worked with Scaglietti to continue development of the
+            body.[5] The design of the car was a collaborative effort and cannot be ascribed to a single person.
+            </p>
+        </div>
+    </div>
+    <div class="flex py-2 mx-y justify-end">
+        <button id="not-show"
+                class="btn mx-4 items-end px-4 py-1 rounded-full border-red-900 border-solid border-2 bg-red-600 text-white">
+            not show again
+        </button>
+        <button id="close"
+                class="btn items-end px-4 py-1 rounded-full border-green-900 border-solid border-2 bg-green-600 text-white">
+            close
+        </button>
+    </div>
+</div>
+<script>
+    var modal = document.getElementById("static-modal");
+    var notShowBtn = document.getElementById("not-show");
+    var closeBtn = document.getElementById("close");
+    notShowBtn.onclick = function () {
+        const d = new Date();
+        const exdays = 7;
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = "popup=not-show;" + expires + ";path=/";
+        modal.style.display = "none";
+    }
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>

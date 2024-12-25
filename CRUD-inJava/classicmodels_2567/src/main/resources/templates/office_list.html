@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="~{flagments/html-head}"/>
+    <script>
+        $(document).ready(function () {
+            $('#aTable').dataTable()
+            {
+                bPaginate : true
+            }
+        });
+    </script>
+</head>
+<body>
+<th:block th:insert="~{flagments/page-header}"/>
+<div class="container ml-10 mt-10">
+    <div class="container ml-10 mt-10">
+        <p class="text-2xl mb-4 bg-gray-500 p-4 text-gray-100">Office List ::</p>
+        <table id="aTable" class="table table-striped" style="width:80%">
+            <thead class="bg-gray-400">
+            <tr>
+                <th>Code</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>Phone#</th>
+                <th>Postal Code</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="office : ${offices}">
+                <td th:text="${office.officeCode}"/>
+                <td th:text="${office.city}"/>
+                <td th:text="${office.addressLine1}"/>
+                <td th:text="${office.country}"/>
+                <td th:text="${office.phone}"/>
+                <td th:text="${office.postalCode}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
